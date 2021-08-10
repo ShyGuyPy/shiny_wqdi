@@ -1,9 +1,8 @@
 # Load packages using script copied from:
 # https://www.r-bloggers.com/install-and-load-missing-specifiedneeded-packages-on-the-fly/
 # needed packages for a job
-
-need <- c(
-  #"shiny",
+# 
+need <- c("shiny",
           "shinydashboard",
           "leaflet",
           "DT",

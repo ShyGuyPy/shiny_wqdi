@@ -1,0 +1,13 @@
+name: shiny_wqdi
+title: shiny_wqdi
+username:
+account: icprb
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 343396
+bundleId: 4908641
+url: https://icprb.shinyapps.io/shiny_wqdi/
+when: 1628619849.01407
+lastSyncTime: 1628619849.01407
+asMultiple: FALSE
+asStatic: FALSE
