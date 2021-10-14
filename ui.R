@@ -5,44 +5,55 @@ ui <- fluidPage(useShinyjs(),
                 hidden(div(
                   id = "app_content",
                   dashboardPage(
-                    dashboardHeader(title = "Water Quality Data Inventory",
+                    dashboardHeader(
+                      # tags$li(class = "dropdown",
+                      #         tags$style(".main-header {max-height: 20px}"),
+                      #         tags$style(".main-header .logo {height: 20px;}"),
+                      #         tags$style(".sidebar-toggle {height: 20px; padding-top: 1px !important;}"),
+                      #         tags$style(".navbar {min-height:20px !important}"),
+                      #         
+                      #         
+                      # ) ,
+
+                      title = "Water Quality Data Inventory",
                                     titleWidth = 300),
-                    # dashboardSidebar(disable = TRUE),
-                    dashboardSidebar(width = 200,
-                                     sidebarMenu(
-                                       menuItem(
-                                         "Information",
-                                         tabName = "info_tab",
-                                         icon = icon("info-circle")
-                                       ),
-                                       menuItem("Tabular", tabName = "tabular_tab", icon = icon("table"))#,
-                                       # menuItem("Map", tabName = "map_tab", icon = icon("globe"))
-                                     )),
-                    dashboardBody(tabItems(
-                      tabItem(tabName = "info_tab",
-                              fluidPage(fluidRow(
-                                column(width = 12,
-                                       fluidRow(
-                                         box(
-                                           width = 12,
-                                           title = tagList(shiny::icon("inco-circle"), "Information"),
-                                           solidHeader = TRUE,
-                                           status = "primary",
-                                           source("ui/ui_info.R", local = TRUE)$value
-                                         ),
-                                         box(
-                                           width = 12,
-                                           title = tagList(shiny::icon("graduation-cap"), "Instructions"),
-                                           solidHeader = TRUE,
-                                           status = "primary",
-                                           source("ui/ui_instructions.R", local = TRUE)$value
-                                         )
-                                       ))
-                              ))),
-                      tabItem(tabName = "tabular_tab",
+                    
+                    dashboardSidebar(disable = TRUE),
+                    # dashboardSidebar(width = 200,
+                    #                  sidebarMenu(
+                    #                    menuItem(
+                    #                      "Information",
+                    #                      tabName = "info_tab",
+                    #                      icon = icon("info-circle")
+                    #                    ),
+                    #                    menuItem("Tabular", tabName = "tabular_tab", icon = icon("table"))#,
+                    #                    # menuItem("Map", tabName = "map_tab", icon = icon("globe"))
+                    #                  )),
+                    dashboardBody(#tabItems(
+                      # tabItem(tabName = "info_tab",
+                      #         fluidPage(fluidRow(
+                      #           column(width = 12,
+                      #                  fluidRow(
+                      #                    box(
+                      #                      width = 12,
+                      #                      title = tagList(shiny::icon("inco-circle"), "Information"),
+                      #                      solidHeader = TRUE,
+                      #                      status = "primary",
+                      #                      source("ui/ui_info.R", local = TRUE)$value
+                      #                    ),
+                      #                    box(
+                      #                      width = 12,
+                      #                      title = tagList(shiny::icon("graduation-cap"), "Instructions"),
+                      #                      solidHeader = TRUE,
+                      #                      status = "primary",
+                      #                      source("ui/ui_instructions.R", local = TRUE)$value
+                      #                    )
+                      #                  ))
+                      #         ))),
+                      # tabItem(tabName = "tabular_tab",
                               fluidPage(fluidRow(
                                 column(
-                                  width = 4,
+                                  width = 12,
                                   tabBox(width = 12,
                                     tabPanel("Filter", icon = icon("filter"),
                                              source("ui/ui_filter.R", local = TRUE)$value),
@@ -61,9 +72,9 @@ ui <- fluidPage(useShinyjs(),
                                   #     status = "primary",
                                   #     source("ui/ui_download_box.R", local = TRUE)$value
                                   #     ),
-                                  valueBoxOutput("program_count", width = 12)
+                                  # valueBoxOutput("program_count", width = 12)
                                 ),
-                                column(width = 8,
+                                column(width = 12,
                                        tabBox(
                                          width = 12,
                                          height = 700,
@@ -72,7 +83,7 @@ ui <- fluidPage(useShinyjs(),
                                        #  tabPanel("Site", icon = icon("table"),
                                         #          dt_output("site_dt"))
                                        ))
-                              )))#,
+                              ))#,
                     #   tabItem(tabName = "map_tab",
                     #           fluidPage(fluidRow(
                     #             column(width = 4,
@@ -89,7 +100,8 @@ ui <- fluidPage(useShinyjs(),
                     #           ))
                     # 
                     # )
-                    ))
+                    #) #end tabitems
+                  )
                 )))
 )
 
