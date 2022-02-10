@@ -10,8 +10,11 @@ text-align: center;
 color: #FFFFFF;
 }
 
+/*.tabbable > .nav > li > a[data-value='Download'] {background-color: red;   color:white} */
+
+
 .btn {
-  background-color:#3C8DBC;
+  background-color:#3C8DBC;  
   color: #FFFFFF;
   font-family: Courier New;
   width:80%;
@@ -21,7 +24,7 @@ color: #FFFFFF;
 }
 
 .btn:hover {
-  background-color: #3C8DBC;
+  background-color: #3C8DBC; 
   width:85%;
   font-size: 100%;
   color: #FFFFFF;
@@ -32,36 +35,112 @@ color: #FFFFFF;
   color: #FFFFFF;
 }
 
+.test_para {
+  font-weight: bold;
+}
+
 .selectize-input {
   height: 25px;
-  /*width: 125px;*/
-  width: 22vw;
+  width: 150px;
   font-size: 7pt;
   font-weight: normal;
   border: 3px solid #3c8dbc;
+  /*border-radius: 15px;*/
+  
+ 
+  
+  padding-bottom: 0;
+  margin-bottom: 0;
+  /*display:block;*/
+  /*position:relative;
+  right: 30px; */
+  
+  /*border-right-width: 0;*/
+  
+  /*
+  padding-right: 0;
+  margin-right: 0;
+  box-sizing: content-box;
+  */
+  
   
 }
-
 .selectize-control {
   border-radius: 15px;
   align-content:center;
 }
 
 .box-body {
-  /*height: 75px;
-  width: 300px;*/
+  height: 75px;
+  width: 300px;
+  /*padding-right: 20px;
+  padding-left: 20px;*/
   border: 3px solid #3c8dbc;
   border-radius: 25px;
   
   padding-bottom: 0;
   margin-bottom: 0;
   align-content:center;
+  /*position:relative;
+  left: 30px;*/
+  
+  /*margin:0;
+  padding:0;*/
+  
+  /*box-sizing: content-box;
+  
+  align-content: padding-leftleft;
+  */
 }
 
+/*box around input selections (3 of them)*/
 .col-sm-4 {
+  /*rounding edges*/
   border-radius: 5px;
-  /*height: 170px;*/
+  /*align-content:center;
+  padding-right: 0;
+  padding-left: 0;*/
 }
+
+.col-sm-12 {
+
+  padding-left: 0;
+  padding-right: 0;
+  padding: 0;
+}
+
+.content {
+  padding: 0;
+}
+
+
+/*
+.filter_col_1 {
+  width: 700px;
+  border: 30px solid #3c8dbc;
+}
+
+.filter_select_1 {
+  width: 80%;
+}
+
+.filter_col_2 {
+  width: 80%;
+}
+
+.filter_select_2 {
+  width: 80%;
+}
+
+.filter_col_3 {
+  width: 80%;
+}
+
+.filter_select_3 {
+  width: 80%;
+}
+*/
+
 
 p {
   font-size:15px; font-weight: bold;
@@ -70,3 +149,7 @@ p {
   font-size: 10px;
 }
 
+/*.tab-content {
+  padding:0;
+}
+*/
