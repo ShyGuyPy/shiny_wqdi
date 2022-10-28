@@ -1,9 +1,16 @@
+# library(profvis)
+
 #print(pryr::mem_used())
 
-#Libraries-----------------------------------------------------------------------
+# Load packages ---------------------------------------------------------------  
+# Use this one when not publishing to shinyapp.io, comment out when publishing:
 source("global/load_packages.R", local = TRUE)
+# Use this one when publishing, can comment out otherwise:
+# source("global/import_packages.R", local = TRUE)
+
 #Modules-----------------------------------------------------------------------
 source("modules/module_dt.R")
+
 #Functions---------------------------------------------------------------------
 
 # Function enables the loading page feature of this app.
@@ -40,10 +47,10 @@ inventory.df <- suppressWarnings(
 #------------------------------------------------------------------------------
 meta.df <- suppressWarnings(
   data.table::fread("data/icprb_metadata.csv",
-                                              showProgress = FALSE,
+                    showProgress = FALSE,
                     data.table = FALSE, header = TRUE)) %>%               
   standard_names() #%>% 
-  #dplyr::rename(organization = "originator")
+#dplyr::rename(organization = "originator")
 #------------------------------------------------------------------------------
 inventory.df <- full_join(inventory.df, meta.df, by = c("source_no"))
 inventory.df[inventory.df == "N/A"] <- "Unavailable"
@@ -60,22 +67,23 @@ program.cols <- c("organization", "program_name", "site_location",
                   "data_type", "program_website", "data_link",
                   "contact_name", "contact_phone", "contact_email")
 program.df <- inventory.df[, names(inventory.df) %in% program.cols] %>%
-####reordering table output
-select("program_name", "site_location", "metric_parameter",  
-       
-       #"organization", 
-       "data_link", "parameter_group", "program_website",
-       
-       "purpose", "collection_method", "spatial_coverage", 
-       
-       "period_of_record_start_date", "period_of_record_end_date", 
-       
-       "fall_line", "lat_long", "frequency_sampled", 
-       
-       "data_type", "public_or_restricted_data", 
-       
-       "dataset_fees")
-#####
+  ####reordering table output
+  select("program_name", "site_location", "metric_parameter",  
+         
+         #"organization", 
+         "data_link", "parameter_group", "program_website",
+         
+         "purpose", "collection_method", "spatial_coverage", 
+         
+         "period_of_record_start_date", "period_of_record_end_date", 
+         
+         "fall_line", "lat_long", "frequency_sampled", 
+         
+         "data_type", "public_or_restricted_data", 
+         
+         "dataset_fees")
+
+
 
 site.cols <- c("organization", "program name", "station_id", "lat", "long")
 site.df <- inventory.df[, names(inventory.df) %in% site.cols]

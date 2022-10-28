@@ -1,4 +1,20 @@
 # UI---------------------------------------------------------------------------
+###testing###
+sketch = htmltools::withTags(table(
+  class = 'display',
+  thead(
+    tr(
+      th('', title = 'Row Names'),
+      th('Program Name', title = 'test output for program name'),
+      th('Site Location', title = 'The Site Location')#,
+      # th('Petal.Length', title = 'The Petal Length'),
+      # th('Petal.Width', title = 'The Petal Width'),
+      # th('Species', title = 'Iris Species')
+    )
+  )
+))
+###testing###
+
 ui <- fluidPage(
   
   useShinyjs(),
@@ -20,9 +36,9 @@ ui <- fluidPage(
         # sidebarPanel(
         tabsetPanel(#title = "stuff",
           tabPanel(title = "Filter", icon = icon("filter"),
-                   source("ui/ui_filter_vertical.R", local = TRUE)$value
+                   source("ui/ui_filter_vertical2.R", local = TRUE)$value
           ),
-          tabPanel(title =  "Download", icon = icon("download"), 
+          tabPanel(title =  "Download List", icon = icon("download"), 
                    source("ui/ui_download_box.R", local = TRUE)$value
           )#, # end tabPanel
           
