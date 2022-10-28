@@ -8,20 +8,38 @@ clean_filter_labels <- function(x) {
   })
 }
 
-table.filter.cols <- c("none", "parameter_group", "metric_parameter",
-                       "organization", "program_name", "site_location",
-                       "purpose", "collection_method", "spatial_coverage",
-                       "period_of_record_start_date", "period_of_record_end_date",
-                       "fall_line", "lat_long", "frequency_sampled",
-                       "data_type", "public_or_restricted_data",
-                       "dataset_fees") %>% 
+#original
+# table.filter.cols <- c("none", "parameter_group", "metric_parameter",
+#                        "organization", "program_name", "site_location",
+#                        "purpose", "collection_method", "spatial_coverage",
+#                        "period_of_record_start_date", "period_of_record_end_date",
+#                        "fall_line", "lat_long", "frequency_sampled",
+#                        "data_type", "public_or_restricted_data",
+#                        "dataset_fees") %>%
+#   clean_filter_labels()
+
+#changed to match filter column head order (may break things)
+table.filter.cols <- c("program_name", "site_location", "metric_parameter",
+
+                                #"organization",
+                                "data_link", "parameter_group", "program_website",
+
+                                "purpose", "collection_method", "spatial_coverage",
+
+                                "period_of_record_start_date", "period_of_record_end_date",
+
+                                "fall_line", "lat_long", "frequency_sampled",
+
+                                "data_type", "public_or_restricted_data",
+
+                                "dataset_fees") %>%
   clean_filter_labels()
 #------------------------------------------------------------------------------
 output$filter_col_1 <- renderUI({
   req(inventory.df)
   selectInput("filter_col_1", "Column:",
               choices = table.filter.cols,
-              selected = "none")
+              selected = "none", width = "75px")
 })
 #------------------------------------------------------------------------------
 output$filter_select_1 <- renderUI({
@@ -32,7 +50,8 @@ output$filter_select_1 <- renderUI({
               #   unique(inventory.df[, names(inventory.df) == input$filter_col_1])
               # )),
                c(unique(inventory.df[, names(inventory.df) == input$filter_col_1])),
-              multiple = TRUE)
+              multiple = TRUE,
+              width = "75px")
 })
 #------------------------------------------------------------------------------
 output$filter_col_2 <- renderUI({
@@ -42,7 +61,7 @@ output$filter_col_2 <- renderUI({
   }
   selectInput("filter_col_2", "Column:",
               choices = table.filter.cols,
-              selected = "none")
+              selected = "none", width = "75px")
 })
 #------------------------------------------------------------------------------
 output$filter_select_2 <- renderUI({
@@ -51,7 +70,8 @@ output$filter_select_2 <- renderUI({
   options.vec <- unique(program.rec.1()[, names(program.rec.1()) == input$filter_col_2])
   selectInput("filter_select_2", "Options:",
               options.vec,
-              multiple = TRUE)
+              multiple = TRUE,
+              width = "75px")
 })
 #------------------------------------------------------------------------------
 output$filter_col_3 <- renderUI({
@@ -63,7 +83,7 @@ output$filter_col_3 <- renderUI({
   }
   selectInput("filter_col_3", "Column:",
               choices = table.filter.cols,
-              selected = "none")
+              selected = "none", width = "75px")
 })
 #------------------------------------------------------------------------------
 output$filter_select_3 <- renderUI({
@@ -72,7 +92,7 @@ output$filter_select_3 <- renderUI({
   options.vec <- unique(program.rec.2()[, names(program.rec.2()) == input$filter_col_3])
   selectInput("filter_select_3", "Options:",
               options.vec,
-              multiple = TRUE)
+              multiple = TRUE, width = "75px")
 })
 #------------------------------------------------------------------------------
 observeEvent(input$reset, {
