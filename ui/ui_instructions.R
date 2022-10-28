@@ -1,4 +1,4 @@
-tags$div(
+tags$div(class="test_para",
   p(
     'To use this interactive tool, click on the "Tabular" page to filter and download the information about the water quality',
     "monitoring programs in the Potomac River basin. The inventory includes information",
