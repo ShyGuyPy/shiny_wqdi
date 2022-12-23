@@ -49,7 +49,12 @@ output$filter_select_1 <- renderUI({
               # c(clean_filter_labels(
               #   unique(inventory.df[, names(inventory.df) == input$filter_col_1])
               # )),
-               c(unique(inventory.df[, names(inventory.df) == input$filter_col_1])),
+              
+              ### need to add a sort() to the below code so that option menu drop-down outputs alphabetically (requested feature)
+              ### however this is currently breaking the application (hangs on launch)
+              # if(input$filter_col_1 != ""){c(sort(unique(inventory.df[, names(inventory.df) == input$filter_col_1])))}else{
+              # c(unique(inventory.df[, names(inventory.df) == input$filter_col_1]))},
+              c(unique(inventory.df[, names(inventory.df) == input$filter_col_1])),
               multiple = TRUE,
               width = "75px")
 })

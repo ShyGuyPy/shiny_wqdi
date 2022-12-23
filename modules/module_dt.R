@@ -29,7 +29,7 @@ dt_table <- function(input, output, session, data.df) {
         th('', title = 'Row Names'),
         th("Program Name", title = 'Name of program conducting the data collection effort.'),
         th("Site Location", title = 'County(ies)/State(s) where data collection occurs.'),
-        th("metric_parameter", title = 'Related groups of metric parameters.'),  
+        th("metric_parameter", title = 'Name of parameter being sampled for by the program.'),  
         th("data_link", title = 'Web link to download data.'),
         th("parameter_group", title = 'Related groups of metric parameters.'),
         th("program_website", title = 'Web link to the program’s website. '),
